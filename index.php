@@ -29,10 +29,18 @@ $usuario = new Usuario();
 $usuario->login("root", "3333");
 echo $usuario;*/
 
+
+/*Criando um novo usuario
 $aluno = new Usuario("aluno", "@lun0");
-
 $aluno->insert();
+echo $aluno;*/
 
-echo $aluno;
+$usuario = new Usuario();
+
+$usuario->loadByiD(19);
+
+$usuario->update("professor", "pr0f3550r");
+
+echo $usuario;
 
 ?>
