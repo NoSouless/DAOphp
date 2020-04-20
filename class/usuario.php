@@ -203,6 +203,21 @@ class Usuario {
 
     }
 
+    public function delete(){
+
+        $sql = new Sql();
+        
+        $sql->query(
+            "DELETE FROM
+                tb_usuarios
+            WHERE 
+                idusuario = :ID",
+            array(
+                ':ID'=>$this->getIdUsuario()
+            ));        
+
+    }
+
     public function __toString(){
 
         return json_encode(array(
@@ -211,6 +226,12 @@ class Usuario {
             "dessenha"=>$this->getDessenha(),
             "dtcadastro"=>$this->getDtcadastro()->format("d/m/Y H:i:s")
         ));
+
+        $this->setIdusuario(0);
+        $this->setDeslogin("");
+        $this->setDessenha("");
+        $this->setDtcadastro(new DateTime());
+
     }
 
 };
